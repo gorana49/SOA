@@ -271,11 +271,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
+      "projectUniqueName": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
       "projectName": "GatewayMicroservice",
-      "projectPath": "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
+      "projectPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
       "packagesPath": "C:\\Users\\Zeljko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\GatewayMicroservice\\obj\\",
+      "outputPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

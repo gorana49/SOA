@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj": {}
+    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj": {
+    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
+        "projectUniqueName": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
         "projectName": "DataMicroservice",
-        "projectPath": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
-        "packagesPath": "C:\\Users\\lukac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\DataMicroservice\\obj\\",
+        "projectPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
+        "packagesPath": "C:\\Users\\Zeljko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lukac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Zeljko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +43,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "InfluxDB.Client": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"

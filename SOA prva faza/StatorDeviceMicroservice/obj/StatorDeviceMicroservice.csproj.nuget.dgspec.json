@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj": {}
+    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj": {
+    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
+        "projectUniqueName": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
         "projectName": "StatorDeviceMicroservice",
-        "projectPath": "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
+        "projectPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
         "packagesPath": "C:\\Users\\Zeljko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\obj\\",
+        "outputPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
