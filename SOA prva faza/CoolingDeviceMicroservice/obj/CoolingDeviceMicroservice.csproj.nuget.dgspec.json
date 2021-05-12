@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {}
+    "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {
+    "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
+        "projectUniqueName": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
         "projectName": "CoolingDeviceMicroservice",
-        "projectPath": "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
-        "packagesPath": "C:\\Users\\Zeljko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zeljko\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\obj\\",
+        "projectPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
+        "packagesPath": "C:\\Users\\lukac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Zeljko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lukac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[27.0.2, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"
@@ -50,6 +51,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[6.1.4, )"
             }
           },
           "imports": [
