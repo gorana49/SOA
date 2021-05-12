@@ -1,19 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MotorDeviceMicroservice.Services;
+using CoolingDeviceMicroservice.Services;
 using System.ComponentModel.DataAnnotations;
-using MotorDeviceMicroservice.Models;
+using CoolingDeviceMicroservice.Models;
 using System.Text.Json;
 
-namespace MotorDeviceMicroservice.Controllers
+namespace CoolingDeviceMicroservice.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class CoolingDeviceController : ControllerBase
     {
         private readonly SensorService _service;
-        public CoolingDeviceController(SensorService service)
+        public CoolingDeviceController()
         {
-            _service = service;
+            _service = new SensorService();
         }
 
         [HttpGet("{type}")]

@@ -3,24 +3,25 @@ using StatorDeviceMicroservice.Models;
 using StatorDeviceMicroservice.Services;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
+
 namespace StatorDeviceMicroservice.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class StatorDeviceController : ControllerBase
     {
         private readonly ListOfSensorServices _listOfSensorService;
-        public StatorDeviceController(ListOfSensorServices listOfServices)
+        public StatorDeviceController()
         {
-            _listOfSensorService = listOfServices;
+            _listOfSensorService = new ListOfSensorServices();
         }
-
+        
         [HttpGet("{type}")]
         public IActionResult GetSensorMetadata([Required, FromRoute] string type)
         {
             if (type == null)
                 return BadRequest($"No sensor type specified.");
-
+            
             foreach (SensorService sensor in this._listOfSensorService.listOfServices)
             {
                 if (type.ToLower() == sensor.SensorType.ToLower())

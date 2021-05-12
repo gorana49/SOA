@@ -33,10 +33,6 @@ namespace CoolingDeviceMicroservice
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DeviceService API", Version = "v1" });
-
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
                 c.EnableAnnotations();
             });
         }
@@ -62,7 +58,6 @@ namespace CoolingDeviceMicroservice
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapSwagger();
             });
         }
     }

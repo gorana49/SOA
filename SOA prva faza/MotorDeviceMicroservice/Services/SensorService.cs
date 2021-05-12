@@ -32,7 +32,7 @@ namespace MotorDeviceMicroservice.Services
             _timer = new Timer(this.Timeout);
             _timer.Elapsed += OnTimerEvent;
             this.SensorType = sensorType;
-            this._filePath = "C:\\Users\\lukac\\Desktop\\measures_v2";
+            this._filePath = "C:\\Users\\lukac\\Desktop\\measures_v2.csv";
             _timer.Start();
             this.IsOn = true;
             this.setCsv();

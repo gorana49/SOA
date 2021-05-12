@@ -7,13 +7,13 @@ using System.Text.Json;
 namespace MotorDeviceMicroservice.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class MotorSensorController : ControllerBase
     {
         private readonly ListOfSensorServices _listOfSensorService;
-        public MotorSensorController(ListOfSensorServices listOfServices)
+        public MotorSensorController()
         {
-            _listOfSensorService = listOfServices;
+            _listOfSensorService = new ListOfSensorServices();
         }
 
         [HttpGet("{type}")]

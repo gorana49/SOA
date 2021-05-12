@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MotorDeviceMicroservice.Models
+namespace CoolingDeviceMicroservice.Models
 {
     [Serializable]
     public class SensorMetadata

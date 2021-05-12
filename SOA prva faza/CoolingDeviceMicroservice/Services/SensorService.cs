@@ -5,9 +5,9 @@ using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using System.Timers;
-using MotorDeviceMicroservice.Models;
+using CoolingDeviceMicroservice.Models;
 
-namespace MotorDeviceMicroservice.Services
+namespace CoolingDeviceMicroservice.Services
 {
     public class SensorService
     {
@@ -24,15 +24,15 @@ namespace MotorDeviceMicroservice.Services
         private StreamReader _streamReader;
         private CsvReader _csv;
 
-        public SensorService(string sensorType)
+        public SensorService()
         {
 
             Threshold = DEFAULT_THRESHOLD;
             this.Timeout = 10000;
             _timer = new Timer(this.Timeout);
             _timer.Elapsed += OnTimerEvent;
-            this.SensorType = sensorType;
-            this._filePath = "C:\\Users\\lukac\\Desktop\\measures_v2";
+            this.SensorType = "coolant";
+            this._filePath = "C:\\Users\\lukac\\Desktop\\measures_v2.csv";
             _timer.Start();
             this.IsOn = true;
             this.setCsv();
