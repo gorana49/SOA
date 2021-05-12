@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace DataMicroservice.Controllers
 {
     [ApiController]
-    [Route("[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     public class DataController : ControllerBase
     {
         private readonly IDataService _db;

@@ -16,7 +16,7 @@ services:
         context: ./CoolingDeviceMicroservice
         dockerfile: Dockerfile
     ports:
-      - "4000:4000"
+      - "4000:80"
     # volumes:
     #   - E:\Skola\IVGodina\PoslednjiSemestar\SOA\soa-microservices\DeviceMicroservice\deviceServices:/app/deviceServices
     depends_on:
