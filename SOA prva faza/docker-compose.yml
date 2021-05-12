@@ -11,7 +11,7 @@ services:
     ports:
       - "8086:8086"
   coolant:
-    image: coolantDev
+    image: coolantdev
     build:
         context: ./CoolingDeviceMicroservice
         dockerfile: Dockerfile
@@ -31,7 +31,7 @@ services:
     depends_on:
         - db
   stator:
-    image: statorDev
+    image: statordev
     build:
         context: ./StatorDeviceMicroservice
         dockerfile: Dockerfile
@@ -40,7 +40,7 @@ services:
     depends_on:
         - db
   motor:
-    image: motorDev
+    image: motordev
     build:
         context: ./MotorDeviceMicroservice
         dockerfile: Dockerfile
@@ -48,15 +48,12 @@ services:
       - "6001:80"
     depends_on:
         - db
-  gateway: 
-    image: gateway
-    build:
-        context: ./GatewayMicroservice
-        dockerfile: Dockerfile
-    ports:
-      - "5008:80"
-    depends_on:
-        - data
-        - device
+  # gateway: 
+    # image: gateway
+    # build:
+        # context: ./GatewayMicroservice
+        # dockerfile: Dockerfile
+    # ports:
+      # - "5008:80"
 volumes:
   influxdbData:

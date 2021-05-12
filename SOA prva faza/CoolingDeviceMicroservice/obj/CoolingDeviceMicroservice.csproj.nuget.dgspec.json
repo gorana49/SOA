@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {}
+    "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {
+    "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
+        "projectUniqueName": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
         "projectName": "CoolingDeviceMicroservice",
-        "projectPath": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
+        "projectPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
         "packagesPath": "C:\\Users\\lukac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\obj\\",
+        "outputPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lukac\\AppData\\Roaming\\NuGet\\NuGet.Config",

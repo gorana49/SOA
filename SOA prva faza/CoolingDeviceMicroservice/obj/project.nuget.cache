@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nZksiTsgrZ3UGx96LQBJYXTXmYH7y7oK8KZwFrMdmmFWXPuKVYcR0Ca16773nKOJGwEiMW5ZfzWBj4UqK7sxig==",
+  "dgSpecHash": "MTQLsaOJZkYTwBJQkuZuemTnEZaWS68P0CDZVFowTQtpcgMITErPvua4qm6Up/vRJAHGComASxP2iy84H9nZaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
+  "projectFilePath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lukac\\.nuget\\packages\\csvhelper\\27.0.2\\csvhelper.27.0.2.nupkg.sha512",
     "C:\\Users\\lukac\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

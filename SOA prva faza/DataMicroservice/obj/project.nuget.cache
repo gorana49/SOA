@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HyihZ6GxaYgw/u3zp2+OQgqWf3xQmxXx7v1ic1FFMyGqA9n78tX4XJE+kO0Urn6IEDFDxsLExCSWsIlam1vCPg==",
+  "dgSpecHash": "KmGyZZVTnfyv3HdearyngF51iTaxOp88kCL7QqCPBUN0YiVmD1zuM+/Xd9oE+cAkgHDL7omuEfeD729fgJmonw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
+  "projectFilePath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lukac\\.nuget\\packages\\csvhelper\\15.0.4\\csvhelper.15.0.4.nupkg.sha512",
     "C:\\Users\\lukac\\.nuget\\packages\\influxdb.client\\1.14.0\\influxdb.client.1.14.0.nupkg.sha512",

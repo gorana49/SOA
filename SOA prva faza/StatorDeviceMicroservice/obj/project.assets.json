@@ -302,11 +302,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
+      "projectUniqueName": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
       "projectName": "StatorDeviceMicroservice",
-      "projectPath": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
+      "projectPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
       "packagesPath": "C:\\Users\\lukac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\obj\\",
+      "outputPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lukac\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -369,13 +369,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

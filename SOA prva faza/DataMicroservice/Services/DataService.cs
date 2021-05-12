@@ -13,7 +13,7 @@ namespace DataMicroservice.Services
         public const string DB_BUCKET = "soa";
         public const string DB_ORGANIZATION = "soa";
         public const string DB_USER = "soa";
-        public readonly char[] DB_PASSWORD = "soasoa".ToCharArray();
+        public readonly char[] DB_PASSWORD = "adminadmin".ToCharArray();
 
         private InfluxDBClient _client;
 
