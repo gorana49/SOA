@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NwGjxiqPUj3yHOG81d0WP2ChQI/I2D3BUoE+YYxy8Y5JfF8cPYMMhybzluscHcwPhDiGEAINF1leCskThjdcyA==",
+  "dgSpecHash": "hQF4FS3o8wsmkGWXvCIAtknrrVm/akys82yURMN4RsSbA25i9Z5dkbioaFgPrVP2TaABEtbgU2lSsKyNdIpGRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
+  "projectFilePath": "C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\StatorDeviceMicroservice.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lukac\\.nuget\\packages\\csvhelper\\27.0.2\\csvhelper.27.0.2.nupkg.sha512",
     "C:\\Users\\lukac\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
@@ -13,5 +13,12 @@
     "C:\\Users\\lukac\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
     "C:\\Users\\lukac\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\lukac\\Source\\Repos\\SOA\\SOA prva faza\\StatorDeviceMicroservice\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

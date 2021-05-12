@@ -1,15 +1,17 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
-using StatorDeviceMicroservice.Models;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Net.Http;
 using System.Timers;
+
 namespace StatorDeviceMicroservice.Services
 {
     public class SensorService
     {
-
+        private static readonly HttpClient client = new HttpClient();
         public const float DEFAULT_THRESHOLD = 2500;
         public float Threshold { get; set; }
         public double Timeout { get; set; }
@@ -59,14 +61,14 @@ namespace StatorDeviceMicroservice.Services
         private async void OnTimerEvent(object sender, ElapsedEventArgs args)
         {
             this.ReadValue();
-            Sensor sensor = new Sensor(this.Value, this.SensorType);
-            //if (!this.IsThresholdSet)
-            //{
-            //    Console.WriteLine($"{data.SensorType}: {data.Value}");
-            //}
-            //  if (sensor.Value > this.Threshold)
-            //PUSHUJ NA DATA POST 
+            //Sensor sensor = new Sensor(this.Value, this.SensorType);
+            var values = new Dictionary<string, string>
+                {
+                    {this.Value.ToString(), this.SensorType}
+                };
+            var content = new FormUrlEncodedContent(values);
 
+            var response = await client.PostAsync("localhost:3000//api//Data//Post", content);
         }
 
         public void SetTimeout(double interval)

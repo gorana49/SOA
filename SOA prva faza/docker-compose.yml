@@ -1,0 +1,62 @@
+version: '3'
+services:
+  db:
+    image: quay.io/influxdb/influxdb:v2.0.4
+    environment: 
+      - INFLUXDB_ADMIN_USER_PASSWORD=soasoa
+      - INFLUXDB_USER_BUCKET=soa
+      - INFLUXDB_USER_ORGANIZATION=soa
+    volumes:
+        - influxdbData:/.influxdbData
+    ports:
+      - "8086:8086"
+  coolant:
+    image: coolantDev
+    build:
+        context: ./CoolingDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    # volumes:
+    #   - E:\Skola\IVGodina\PoslednjiSemestar\SOA\soa-microservices\DeviceMicroservice\deviceServices:/app/deviceServices
+    depends_on:
+        - db
+  data:
+    image: data
+    build:
+        context: ./DataMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+        - db
+  stator:
+    image: statorDev
+    build:
+        context: ./StatorDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "6000:80"
+    depends_on:
+        - db
+  motor:
+    image: motorDev
+    build:
+        context: ./MotorDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "6001:80"
+    depends_on:
+        - db
+  gateway: 
+    image: gateway
+    build:
+        context: ./GatewayMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "5008:80"
+    depends_on:
+        - data
+        - device
+volumes:
+  influxdbData:
