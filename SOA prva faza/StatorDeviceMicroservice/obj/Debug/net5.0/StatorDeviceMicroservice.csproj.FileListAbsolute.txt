@@ -1,0 +1,7 @@
+C:\Users\Zeljko\source\repos\SOA\SOA prva faza\StatorDeviceMicroservice\obj\Debug\net5.0\StatorDeviceMicroservice.csprojAssemblyReference.cache
+C:\Users\Zeljko\source\repos\SOA\SOA prva faza\StatorDeviceMicroservice\obj\Debug\net5.0\StatorDeviceMicroservice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zeljko\source\repos\SOA\SOA prva faza\StatorDeviceMicroservice\obj\Debug\net5.0\StatorDeviceMicroservice.AssemblyInfoInputs.cache
+C:\Users\Zeljko\source\repos\SOA\SOA prva faza\StatorDeviceMicroservice\obj\Debug\net5.0\StatorDeviceMicroservice.AssemblyInfo.cs
+C:\Users\Zeljko\source\repos\SOA\SOA prva faza\StatorDeviceMicroservice\obj\Debug\net5.0\StatorDeviceMicroservice.csproj.CoreCompileInputs.cache
+C:\Users\Zeljko\source\repos\SOA\SOA prva faza\StatorDeviceMicroservice\obj\Debug\net5.0\StatorDeviceMicroservice.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Zeljko\source\repos\SOA\SOA prva faza\StatorDeviceMicroservice\obj\Debug\net5.0\StatorDeviceMicroservice.MvcApplicationPartsAssemblyInfo.cache
