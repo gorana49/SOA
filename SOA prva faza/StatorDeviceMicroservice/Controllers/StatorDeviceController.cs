@@ -14,14 +14,15 @@ namespace StatorDeviceMicroservice.Controllers
         public StatorDeviceController()
         {
             _listOfSensorService = new ListOfSensorServices();
+            System.Console.WriteLine("kontroler");
         }
-        
+
         [HttpGet("{type}")]
         public IActionResult GetSensorMetadata([Required, FromRoute] string type)
         {
             if (type == null)
                 return BadRequest($"No sensor type specified.");
-            
+
             foreach (SensorService sensor in this._listOfSensorService.listOfServices)
             {
                 if (type.ToLower() == sensor.SensorType.ToLower())

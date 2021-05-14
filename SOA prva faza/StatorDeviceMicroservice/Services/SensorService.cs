@@ -1,10 +1,11 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
+using StatorDeviceMicroservice.Models;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
+using System.Text;
 using System.Timers;
 
 namespace StatorDeviceMicroservice.Services
@@ -12,6 +13,7 @@ namespace StatorDeviceMicroservice.Services
     public class SensorService
     {
         private static readonly HttpClient client = new HttpClient();
+        // private readonly IHttpClientFactory _clientFactory;
         public const float DEFAULT_THRESHOLD = 2500;
         public float Threshold { get; set; }
         public double Timeout { get; set; }
@@ -25,7 +27,7 @@ namespace StatorDeviceMicroservice.Services
         private StreamReader _streamReader;
         private CsvReader _csv;
 
-        public SensorService(string sensorType)
+        public SensorService(string sensorType)//, IHttpClientFactory fac)
         {
             this.Threshold = DEFAULT_THRESHOLD; ;
             this.Timeout = 10000;
@@ -37,6 +39,8 @@ namespace StatorDeviceMicroservice.Services
             this.IsOn = true;
             this.setCsv();
             this.IsThresholdSet = false;
+            //   _clientFactory = fac;
+            Console.WriteLine("startuj tajmer");
         }
         public void SensorOff()
         {
@@ -61,14 +65,9 @@ namespace StatorDeviceMicroservice.Services
         private async void OnTimerEvent(object sender, ElapsedEventArgs args)
         {
             this.ReadValue();
-            //Sensor sensor = new Sensor(this.Value, this.SensorType);
-            var values = new Dictionary<string, string>
-                {
-                    {this.Value.ToString(), this.SensorType}
-                };
-            var content = new FormUrlEncodedContent(values);
-
-            var response = await client.PostAsync("localhost:3000//api//Data//Post", content);
+            Sensor sensor = new Sensor(this.Value, this.SensorType);
+            Console.WriteLine("proba");
+            var response = await client.PostAsync("http://localhost:3000//api//Data//Post", new StringContent(System.Text.Json.JsonSerializer.Serialize(sensor), Encoding.UTF8, "application/json"));
         }
 
         public void SetTimeout(double interval)

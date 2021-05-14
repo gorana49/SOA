@@ -13,6 +13,7 @@ namespace StatorDeviceMicroservice.Services
                 new SensorService("stator_winding"),
                 new SensorService("stator_tooth")
             };
+            System.Console.WriteLine("lista servisa");
         }
 
         public void AddSensor(SensorService sensor)

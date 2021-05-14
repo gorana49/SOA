@@ -1,8 +1,6 @@
 ﻿using DataMicroservice.Model;
 using DataMicroservice.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 namespace DataMicroservice.Controllers
 {
@@ -18,13 +16,10 @@ namespace DataMicroservice.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody, Required] Dictionary<string, string> data)
+        public void Post([FromBody, Required] SensorData data)
         {
-            foreach (KeyValuePair<string, string> kvp in data)
-            {
-                SensorData sensor = new SensorData(Double.Parse(kvp.Key), kvp.Value);
-                this._db.SaveData(sensor);
-            }
+            System.Console.Write(data.ToString());
+            this._db.SaveData(data);
         }
 
         //[HttpGet("{sensorType}")]

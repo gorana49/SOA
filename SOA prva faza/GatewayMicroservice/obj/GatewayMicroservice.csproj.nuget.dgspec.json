@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj": {}
+    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj": {
+    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
+        "projectUniqueName": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
         "projectName": "GatewayMicroservice",
-        "projectPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
-        "packagesPath": "C:\\Users\\lukac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA prva faza\\GatewayMicroservice\\obj\\",
+        "projectPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
+        "packagesPath": "C:\\Users\\Zeljko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lukac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Zeljko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
