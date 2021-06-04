@@ -1,11 +1,10 @@
-﻿using CsvHelper;
+﻿using CoolingDeviceMicroservice.Models;
+using CsvHelper;
 using CsvHelper.Configuration;
 using System;
 using System.Globalization;
 using System.IO;
-using System.Threading.Tasks;
 using System.Timers;
-using CoolingDeviceMicroservice.Models;
 
 namespace CoolingDeviceMicroservice.Services
 {
@@ -32,7 +31,7 @@ namespace CoolingDeviceMicroservice.Services
             _timer = new Timer(this.Timeout);
             _timer.Elapsed += OnTimerEvent;
             this.SensorType = "coolant";
-            this._filePath = "C:\\Users\\lukac\\Desktop\\measures_v2.csv";
+            this._filePath = "C:\\Users\\Zeljko\\Desktop\\measures_v2.csv";
             _timer.Start();
             this.IsOn = true;
             this.setCsv();

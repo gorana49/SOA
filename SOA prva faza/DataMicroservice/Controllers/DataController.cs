@@ -8,15 +8,15 @@ namespace DataMicroservice.Controllers
     [Route("api/[controller]/[action]")]
     public class DataController : ControllerBase
     {
-        private readonly IDataService _db;
+        private readonly DataService _db;
 
-        public DataController(IDataService db)
+        public DataController()
         {
-            this._db = db;
+            this._db = new DataService();
         }
 
         [HttpPost]
-        public void Post([FromBody, Required] SensorData data)
+        public void Post([FromBody, Required] Sensor data)
         {
             System.Console.Write(data.ToString());
             this._db.SaveData(data);

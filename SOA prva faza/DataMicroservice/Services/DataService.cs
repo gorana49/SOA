@@ -38,8 +38,9 @@ namespace DataMicroservice.Services
             }
         }
 
-        public void SaveData(SensorData sensorData)
+        public void SaveData(Sensor sensorData)
         {
+            Console.WriteLine("Pogodio je endpoint iz device-a.");
             var point = PointData
                       .Measurement("SensorsData")
                       .Tag("sensor", sensorData.SensorType)

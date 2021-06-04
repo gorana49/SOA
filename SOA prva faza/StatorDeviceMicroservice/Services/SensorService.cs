@@ -12,7 +12,7 @@ namespace StatorDeviceMicroservice.Services
 {
     public class SensorService
     {
-        private static readonly HttpClient client = new HttpClient();
+        //private static readonly HttpClient client = new HttpClient();
         // private readonly IHttpClientFactory _clientFactory;
         public const float DEFAULT_THRESHOLD = 2500;
         public float Threshold { get; set; }
@@ -34,13 +34,12 @@ namespace StatorDeviceMicroservice.Services
             _timer = new Timer(this.Timeout);
             _timer.Elapsed += OnTimerEvent;
             this.SensorType = sensorType;
-            this._filePath = "C:\\Users\\Zeljko\\source\\repos\\measures_v2.csv";
+            this._filePath = "/app/data/measures_v2.csv";
             _timer.Start();
             this.IsOn = true;
             this.setCsv();
             this.IsThresholdSet = false;
             //   _clientFactory = fac;
-            Console.WriteLine("startuj tajmer");
         }
         public void SensorOff()
         {
@@ -67,9 +66,55 @@ namespace StatorDeviceMicroservice.Services
             this.ReadValue();
             Sensor sensor = new Sensor(this.Value, this.SensorType);
             Console.WriteLine("proba");
-            var response = await client.PostAsync("http://localhost:3000//api//Data//Post", new StringContent(System.Text.Json.JsonSerializer.Serialize(sensor), Encoding.UTF8, "application/json"));
-        }
+            HttpClient httpClient = new HttpClient();
+            var response = await httpClient.PostAsync("http://localhost:3000/data/api/Data/Post", new StringContent(
+                    System.Text.Json.JsonSerializer.Serialize(sensor), Encoding.UTF8, "application/json"));
+            // string data = System.Text.Json.JsonSerializer.Serialize(sensor);
+            Console.WriteLine(response.ToString());
 
+            //   var response = await client.PostAsync("http://localhost:3000//api//Data//Post", new StringContent(System.Text.Json.JsonSerializer.Serialize(sensor), Encoding.UTF8, "application/json"));
+        }
+        //private async Task SendValueAsync()
+        //{
+        //    if (IsTreshold)
+        //    {
+        //        if (Value > TresholdValue)
+        //            await PostRequest("http://swagger_dataservice_1/api/Data/AddData");
+        //    }
+        //    else
+        //    {
+        //        await PostRequest("http://swagger_dataservice_1/api/Data/AddData");
+        //    }
+        //}
+
+        //private async Task PostRequest(string uri)
+        //{
+        //    HttpClient httpClient = new HttpClient();
+        //    string data = System.Text.Json.JsonSerializer.Serialize(new
+        //    {
+        //        RecordTime = DateTime.Now.ToShortTimeString(),
+        //        SensorType = Type,
+        //        Value
+        //    });
+
+        //    Console.WriteLine(data);
+
+        //    try
+        //    {
+        //        await httpClient.PostAsync(uri, new StringContent(
+        //            System.Text.Json.JsonSerializer.Serialize(new
+        //            {
+        //                RecordTime = DateTime.Now.ToShortTimeString(),
+        //                SensorType = Type,
+        //                Value
+        //            }
+        //        ), Encoding.UTF8, "application/json"));
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //    }
+        //}
         public void SetTimeout(double interval)
         {
             _timer.Stop();

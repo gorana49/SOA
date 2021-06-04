@@ -6,7 +6,7 @@ namespace DataMicroservice.Services
     {
         void Write(string data);
         void Write(PointData data);
-        void SaveData(SensorData data);
+        void SaveData(Sensor data);
 
     }
 }
