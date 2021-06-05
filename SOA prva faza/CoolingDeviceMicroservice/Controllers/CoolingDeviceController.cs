@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CoolingDeviceMicroservice.Models;
 using CoolingDeviceMicroservice.Services;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using CoolingDeviceMicroservice.Models;
 using System.Text.Json;
 
 namespace CoolingDeviceMicroservice.Controllers
@@ -22,14 +22,14 @@ namespace CoolingDeviceMicroservice.Controllers
             if (type == null)
                 return BadRequest($"No sensor type specified!");
 
-            
+
             if (type.ToLower() == _service.SensorType.ToLower())
             {
                 SensorMetadata metadata = new SensorMetadata(type, _service.Timeout.ToString(), _service.Threshold.ToString());
 
                 return Ok(metadata);
             }
-            
+
             return BadRequest($"Sensor type: {type} doesn't exist!");
         }
 
@@ -37,8 +37,8 @@ namespace CoolingDeviceMicroservice.Controllers
         [HttpGet("{type}")]
         public IActionResult GetTimeout([Required, FromRoute] string type)
         {
-           if (type.ToLower() == _service.SensorType.ToLower())
-           {
+            if (type.ToLower() == _service.SensorType.ToLower())
+            {
                 var options = new JsonSerializerOptions
                 {
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -52,15 +52,15 @@ namespace CoolingDeviceMicroservice.Controllers
                 }, options);
 
                 return Ok(timeoutInfo);
-           }
-            
+            }
+
             return BadRequest("Type of sensor doesn't exist");
         }
 
         [HttpGet("{type}")]
         public IActionResult GetThreshold([Required, FromRoute] string type)
         {
-            
+
             if (type.ToLower() == _service.SensorType.ToLower())
             {
                 var options = new JsonSerializerOptions
@@ -71,37 +71,38 @@ namespace CoolingDeviceMicroservice.Controllers
                 string tresholdInfo = JsonSerializer.Serialize(new { isTreshold = _service.IsThresholdSet, value = _service.Threshold }, options);
                 return Ok(tresholdInfo);
             }
-            
+
             return BadRequest("Type of sensor doesn't exist");
         }
-
-        [HttpPost("{type}")]
-        public IActionResult TurnOnOffSensor(
-            [Required, FromBody] bool on, [Required, FromRoute] string type)
+        //[Required, FromBody]
+        //bool on,
+        [HttpPost]
+        public IActionResult TurnOnOffSensor()
+        //    [Required, FromRoute] string type)
         {
-            
-            if (type.ToLower() == _service.SensorType.ToLower())
-            {
-                if (on)
-                {
-                    if (!_service.IsOn)
-                    {
-                        _service.SensorOn();
-                        return Ok($"Sensor {type} turned on");
-                    }
-                    return Ok($"Sensor {type} alredy started");
-                }
-                else
-                {
-                    if (_service.IsOn)
-                    {
-                        _service.SensorOff();
-                        return Ok($"Sensor {type} turned off");
-                    }
-                    return Ok($"Sensor {type} alredy stopped");
-                }
-            }
-            
+            _service.SensorOn();
+            //if (type.ToLower() == _service.SensorType.ToLower())
+            //{
+            //    //if (on)
+            //    //{
+            //    if (!_service.IsOn)
+            //    {
+            //        _service.SensorOn();
+            //        return Ok($"Sensor {type} turned on");
+            //    }
+            //    return Ok($"Sensor {type} alredy started");
+            //    //}
+            //    //else
+            //    //{
+            //    //    if (_service.IsOn)
+            //    //    {
+            //    //        _service.SensorOff();
+            //    //        return Ok($"Sensor {type} turned off");
+            //    //    }
+            //    //    return Ok($"Sensor {type} alredy stopped");
+            //    //}
+            //}
+
             return BadRequest("Type of sensor doesn't exist");
         }
 
@@ -110,7 +111,7 @@ namespace CoolingDeviceMicroservice.Controllers
             [Required, FromRoute] string type, [Required, FromBody] double? value)
 
         {
-            
+
             if (type.ToLower() == _service.SensorType.ToLower())
             {
                 _service.IsThresholdSet = false;
@@ -124,7 +125,7 @@ namespace CoolingDeviceMicroservice.Controllers
                     return Ok($"Timeout based measuring started for {type} sensor. Last Timeout value used");
                 }
             }
-            
+
             return BadRequest("Type of sensor doesn't exist");
         }
 
@@ -134,7 +135,7 @@ namespace CoolingDeviceMicroservice.Controllers
         {
             if (value == null) return BadRequest("Provide treshold value");
 
-            
+
             if (type.ToLower() == _service.SensorType.ToLower())
             {
                 _service.IsThresholdSet = true;
@@ -148,7 +149,7 @@ namespace CoolingDeviceMicroservice.Controllers
                     return Ok($"Threshold based measuring started for {type} sensor. Default Threshold value used");
                 }
             }
-            
+
             return BadRequest("Type of sensor doesn't exist");
         }
     }

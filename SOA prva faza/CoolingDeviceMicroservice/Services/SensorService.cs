@@ -4,6 +4,8 @@ using CsvHelper.Configuration;
 using System;
 using System.Globalization;
 using System.IO;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Timers;
 
 namespace CoolingDeviceMicroservice.Services
@@ -31,7 +33,7 @@ namespace CoolingDeviceMicroservice.Services
             _timer = new Timer(this.Timeout);
             _timer.Elapsed += OnTimerEvent;
             this.SensorType = "coolant";
-            this._filePath = "C:\\Users\\Zeljko\\Desktop\\measures_v2.csv";
+            this._filePath = "/SOA/measures_v2.csv";
             _timer.Start();
             this.IsOn = true;
             this.setCsv();
@@ -62,7 +64,15 @@ namespace CoolingDeviceMicroservice.Services
         private async void OnTimerEvent(object sender, ElapsedEventArgs args)
         {
             this.ReadValue();
-            Sensor sensor = new Sensor(this.SensorType, this.Value);
+            Sensor sensor = new Sensor("coolant", this.Value);
+            Console.WriteLine(this.Value.ToString(), sensor.SensorType);
+            HttpClient httpClient = new HttpClient();
+            var responseMessage = await httpClient.PostAsJsonAsync("http://data/api/Data/Post", sensor);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                Console.Write("Uspelo!");
+            }
+            //        Console.WriteLine($"post response: {responseMessage}");
             /*if (!this.IsThresholdSet)
             {
                 Console.WriteLine($"{data.SensorType}: {data.Value}");
@@ -70,6 +80,21 @@ namespace CoolingDeviceMicroservice.Services
 
             //if (sensor.Value > this.Threshold)
             //push na data post;
+            //private async void ShutDownSensor(string sensorType)
+            //{
+            //    Console.WriteLine(sensorType);
+            //    HttpClient httpClient = new HttpClient();
+            //    try
+            //    {
+            //        var responseMessage = await httpClient.PostAsync("http://device/api/Device/TurnOnOffSensor/" +
+            //            sensorType, new StringContent("false", Encoding.UTF8, "application/json"));
+            //        Console.WriteLine($"post response: {responseMessage}");
+            //    }
+            //    catch (Exception exception)
+            //    {
+            //        Console.WriteLine(exception.Message);
+            //    }
+            //}
 
         }
 

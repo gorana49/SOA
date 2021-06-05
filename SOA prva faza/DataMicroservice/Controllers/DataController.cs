@@ -1,58 +1,40 @@
-﻿using DataMicroservice.Model;
-using DataMicroservice.Services;
+﻿using DataMicroservice.IRepository;
+using DataMicroservice.Model;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
+
 namespace DataMicroservice.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class DataController : ControllerBase
     {
-        private readonly DataService _db;
-
-        public DataController()
+        public IDataRepository _dataRepository;
+        public DataController(IDataRepository dataRepository)
         {
-            this._db = new DataService();
+            _dataRepository = dataRepository;
         }
 
         [HttpPost]
-        public void Post([FromBody, Required] Sensor data)
+        public Task Post([FromBody, Required] Sensor data)
         {
-            System.Console.Write(data.ToString());
-            this._db.SaveData(data);
+            var result = _dataRepository.PostData(data);
+            return result;
         }
 
-        //[HttpGet("{sensorType}")]
-        //[Route("getsensordata")]
-        //async public Task<IActionResult> GetSensorData([FromQuery] string sensorType)
-        //{
-        //    Console.WriteLine($"sensorType: {sensorType}");
-        //    string query = $"from(bucket: \"soa\") " +
-        //        $"|> range(start: -50m) " +
-        //        $"|> filter(fn: (r) => r._measurement == \"SensorsData\") " +
-        //        $"|> filter(fn: (r) => r._field == \"value\") " +
-        //        $"|> filter(fn: (r) => r.sensor == \"{sensorType}\")";
-        //    List<FluxTable> query_data = await _db.Query(query);
-        //    //foreach (var data_point in query_data)
-        //    //{
-        //    //    Console.WriteLine(data_point);
-        //    //}
-        //    return Ok(query_data);
-        //}
+        [HttpGet("{sensorType}")]
+        //public List<ValueTimestamp> GetData([FromRoute] string sensorType)
+        public List<ValueTimestamp> GetData([FromRoute] string sensorType)
+        {
+            //List<ValueTimestamp> list = new List<ValueTimestamp>();
+            List<ValueTimestamp> list = _dataRepository.GetData(sensorType);
 
-        //[HttpGet("{minutes}")]
-        //[Route("getlastnminutesdata")]
-        //async public Task<IActionResult> GetLastNMinutesData([FromQuery] int minutes)
-        //{
-        //    string query = $"from(bucket: \"soa\") " +
-        //        $"|> range(start: -{minutes}m) " +
-        //        $"|> filter(fn: (r) => r._measurement == \"SensorsData\") " +
-        //        $"|> filter(fn: (r) => r._field == \"value\") ";
-        //    List<FluxTable> query_data = await _db.Query(query);
-        //    return Ok(query_data);
-        //}
+            return list;
+        }
 
-        // POST api/<DataController>
 
 
     }
