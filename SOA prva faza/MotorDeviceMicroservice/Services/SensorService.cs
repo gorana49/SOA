@@ -6,6 +6,8 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Timers;
 using MotorDeviceMicroservice.Models;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 namespace MotorDeviceMicroservice.Services
 {
@@ -32,9 +34,8 @@ namespace MotorDeviceMicroservice.Services
             _timer = new Timer(this.Timeout);
             _timer.Elapsed += OnTimerEvent;
             this.SensorType = sensorType;
-            this._filePath = "C:\\Users\\lukac\\Desktop\\measures_v2.csv";
-            _timer.Start();
-            this.IsOn = true;
+            this._filePath = "/SOA/measures_v2.csv";
+            this.IsOn = false;
             this.setCsv();
             this.IsThresholdSet = false;
         }
@@ -64,14 +65,8 @@ namespace MotorDeviceMicroservice.Services
         {
             this.ReadValue();
             Sensor sensor = new Sensor(this.SensorType, this.Value);
-            /*if (!this.IsThresholdSet)
-            {
-                Console.WriteLine($"{data.SensorType}: {data.Value}");
-            }*/
-
-            //if (sensor.Value > this.Threshold)
-                //push na data post;
-            
+            HttpClient httpClient = new HttpClient();
+            var responseMessage = await httpClient.PostAsJsonAsync("http://data/api/Data/Post", sensor);
         }
 
         public void SetTimeout(double interval)

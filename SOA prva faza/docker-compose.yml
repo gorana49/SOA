@@ -27,7 +27,7 @@ services:
     depends_on:
          - redis
     volumes:
-         - C:\Users\Zeljko\Desktop\SOA:/SOA
+         - C:\Users\lukac\source\repos\SOA:/SOA
   data:
     image: data
     build:
@@ -44,32 +44,33 @@ services:
       - 6379:6379
     volumes:
       - redisVol:/data:rw
-volumes:
-    redisVol:
+
   # volumes:
   #   redis-vol:
     # depends_on:
     #     - db
-#   stator:
-#     image: statordev
-#     build:
-#         context: ./StatorDeviceMicroservice
-#         dockerfile: Dockerfile
-#     ports:
-#       - "5000:80"
-#     volumes:
-#       - C:\Users\Zeljko\Desktop\SOA:/app/data/
-#     depends_on:
-#         - db
-#   motor:
-#     image: motordev
-#     build:
-#         context: ./MotorDeviceMicroservice
-#         dockerfile: Dockerfile
-#     ports:
-#       - "6000:80"
-#     depends_on:
-#         - db
+  stator:
+    image: statordev
+    build:
+        context: ./StatorDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+         - redis
+    volumes:
+         - C:\Users\lukac\source\repos\SOA:/SOA
+  motor:
+    image: motordev
+    build:
+        context: ./MotorDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "6000:80"
+    depends_on:
+         - redis
+    volumes:
+         - C:\Users\lukac\source\repos\SOA:/SOA
 #   # gateway: 
 #     # image: gateway
 #     # build:
@@ -77,5 +78,5 @@ volumes:
 #         # dockerfile: Dockerfile
 #     # ports:
 #       # - "5008:80"
-
-#   influxdbData:
+volumes:
+    redisVol:

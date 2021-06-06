@@ -14,7 +14,6 @@ namespace StatorDeviceMicroservice.Controllers
         public StatorDeviceController()
         {
             _listOfSensorService = new ListOfSensorServices();
-            System.Console.WriteLine("kontroler");
         }
 
         [HttpGet("{type}")]

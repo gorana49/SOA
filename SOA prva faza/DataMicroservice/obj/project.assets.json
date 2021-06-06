@@ -1983,11 +1983,12 @@
       ]
     },
     "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple/4.3.0": {
-      "sha512": "Kh9W4agE0r/hK8AX1LvyQI2NrKHBL8pO0gRoDTdDb0LL6Ta1Z2OtFx3lOaAE0ZpCUc/dt9Wzs3rA7a3IsKdOVA==",
+      "sha512": "kVXCuMTrTlxq4XOOMAysuNwsXWpYeboGddNGpIgNSZmv1b6r/s/DPk0fYMB7Q5Qo4bY68o48jt4T4y5BVecbCQ==",
       "type": "package",
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg.sha512",
@@ -3926,7 +3927,7 @@
       ]
     },
     "System.Security.Cryptography.Csp/4.3.0": {
-      "sha512": "yO2k5o+Z+DiFRBvvB9vdRRAGHi6bm02M9OWXfCqQ8K0UxD3Woc3svQheZfb7PoTEFs0kGacO0IzzMWsb6Mkeow==",
+      "sha512": "X4s/FCkEUnRGnwR3aSfVIkldBmtURMhmexALNTwpjklzxWU7yjMk7GHLKOZTNkgnWnE0q7+BCf9N2LVRWxewaA==",
       "type": "package",
       "path": "system.security.cryptography.csp/4.3.0",
       "files": [
@@ -3998,7 +3999,7 @@
       ]
     },
     "System.Security.Cryptography.OpenSsl/4.3.0": {
-      "sha512": "vOYy7Jv9KsG3ld2hLt0GoERd82SZi4BelrbXLwI9yFBYX7kpbvUCWYo4eyevk47cuJXZ9ZLVAryANcc7iY71aA==",
+      "sha512": "h4CEgOgv5PKVF/HwaHzJRiVboL2THYCou97zpmhjghx5frc7fIvlkY1jL+lnIQyChrJDMNEXS6r7byGif8Cy4w==",
       "type": "package",
       "path": "system.security.cryptography.openssl/4.3.0",
       "files": [
@@ -4657,23 +4658,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zeljko\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\lukac\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
+      "projectUniqueName": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
       "projectName": "DataMicroservice",
-      "projectPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
-      "packagesPath": "C:\\Users\\Zeljko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\obj\\",
+      "projectPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\DataMicroservice.csproj",
+      "packagesPath": "C:\\Users\\lukac\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\DataMicroservice\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Zeljko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lukac\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

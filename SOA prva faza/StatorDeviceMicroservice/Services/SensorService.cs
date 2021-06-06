@@ -5,6 +5,7 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Timers;
 
@@ -34,12 +35,10 @@ namespace StatorDeviceMicroservice.Services
             _timer = new Timer(this.Timeout);
             _timer.Elapsed += OnTimerEvent;
             this.SensorType = sensorType;
-            this._filePath = "/app/data/measures_v2.csv";
-            _timer.Start();
-            this.IsOn = true;
+            this._filePath = "/SOA/measures_v2.csv";
+            this.IsOn = false;
             this.setCsv();
             this.IsThresholdSet = false;
-            //   _clientFactory = fac;
         }
         public void SensorOff()
         {
@@ -65,14 +64,8 @@ namespace StatorDeviceMicroservice.Services
         {
             this.ReadValue();
             Sensor sensor = new Sensor(this.Value, this.SensorType);
-            Console.WriteLine("proba");
             HttpClient httpClient = new HttpClient();
-            var response = await httpClient.PostAsync("http://localhost:3000/data/api/Data/Post", new StringContent(
-                    System.Text.Json.JsonSerializer.Serialize(sensor), Encoding.UTF8, "application/json"));
-            // string data = System.Text.Json.JsonSerializer.Serialize(sensor);
-            Console.WriteLine(response.ToString());
-
-            //   var response = await client.PostAsync("http://localhost:3000//api//Data//Post", new StringContent(System.Text.Json.JsonSerializer.Serialize(sensor), Encoding.UTF8, "application/json"));
+            var responseMessage = await httpClient.PostAsJsonAsync("http://data/api/Data/Post", sensor);
         }
         //private async Task SendValueAsync()
         //{
