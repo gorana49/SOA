@@ -16,6 +16,7 @@ services:
     depends_on:
          - mongodb
     volumes:
+<<<<<<< HEAD
          - C:\Users\Zeljko\Desktop\SOA:/SOA
   stator:
     image: statordev
@@ -46,6 +47,9 @@ services:
       - "7000:80"
     depends_on:
       - mongodb
+=======
+         - C:\Users\lukac\source\repos\SOA:/SOA
+>>>>>>> a0257b99e7c81c4f4783b3fb90aec616a8398df2
   data:
     image: data
     build:
@@ -64,6 +68,7 @@ services:
       - "27017:27017"
     restart: unless-stopped
     volumes:
+<<<<<<< HEAD
       - mongoDb:/data   
     depends_on: 
        - hivemq  
@@ -76,3 +81,42 @@ services:
   #       - 7005:80
 volumes:
     mongoDb:
+=======
+      - redisVol:/data:rw
+
+  # volumes:
+  #   redis-vol:
+    # depends_on:
+    #     - db
+  stator:
+    image: statordev
+    build:
+        context: ./StatorDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+         - redis
+    volumes:
+         - C:\Users\lukac\source\repos\SOA:/SOA
+  motor:
+    image: motordev
+    build:
+        context: ./MotorDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "6000:80"
+    depends_on:
+         - redis
+    volumes:
+         - C:\Users\lukac\source\repos\SOA:/SOA
+#   # gateway: 
+#     # image: gateway
+#     # build:
+#         # context: ./GatewayMicroservice
+#         # dockerfile: Dockerfile
+#     # ports:
+#       # - "5008:80"
+volumes:
+    redisVol:
+>>>>>>> a0257b99e7c81c4f4783b3fb90aec616a8398df2

@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {}
+    "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {
+    "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
+        "projectUniqueName": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
         "projectName": "CoolingDeviceMicroservice",
-        "projectPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
-        "packagesPath": "C:\\Users\\Zeljko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\obj\\",
+        "projectPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
+        "packagesPath": "C:\\Users\\lukac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Zeljko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lukac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

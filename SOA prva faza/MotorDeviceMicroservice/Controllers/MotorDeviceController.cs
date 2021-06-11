@@ -8,10 +8,10 @@ namespace MotorDeviceMicroservice.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class MotorSensorController : ControllerBase
+    public class MotorDeviceController : ControllerBase
     {
         private readonly ListOfSensorServices _listOfSensorService;
-        public MotorSensorController()
+        public MotorDeviceController()
         {
             _listOfSensorService = new ListOfSensorServices();
         }

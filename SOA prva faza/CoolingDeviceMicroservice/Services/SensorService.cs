@@ -34,8 +34,7 @@ namespace CoolingDeviceMicroservice.Services
             _timer.Elapsed += OnTimerEvent;
             this.SensorType = "coolant";
             this._filePath = "/SOA/measures_v2.csv";
-            _timer.Start();
-            this.IsOn = true;
+            this.IsOn = false;
             this.setCsv();
             this.IsThresholdSet = false;
         }
@@ -67,34 +66,7 @@ namespace CoolingDeviceMicroservice.Services
             Sensor sensor = new Sensor("coolant", this.Value);
             HttpClient httpClient = new HttpClient();
             var responseMessage = await httpClient.PostAsJsonAsync("http://data/api/Data/Post", sensor);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                Console.Write("Uspelo!");
-            }
-            //        Console.WriteLine($"post response: {responseMessage}");
-            /*if (!this.IsThresholdSet)
-            {
-                Console.WriteLine($"{data.SensorType}: {data.Value}");
-            }*/
-
-            //if (sensor.Value > this.Threshold)
-            //push na data post;
-            //private async void ShutDownSensor(string sensorType)
-            //{
-            //    Console.WriteLine(sensorType);
-            //    HttpClient httpClient = new HttpClient();
-            //    try
-            //    {
-            //        var responseMessage = await httpClient.PostAsync("http://device/api/Device/TurnOnOffSensor/" +
-            //            sensorType, new StringContent("false", Encoding.UTF8, "application/json"));
-            //        Console.WriteLine($"post response: {responseMessage}");
-            //    }
-            //    catch (Exception exception)
-            //    {
-            //        Console.WriteLine(exception.Message);
-            //    }
-            //}
-
+            
         }
 
         public void SetTimeout(double interval)

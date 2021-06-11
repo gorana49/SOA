@@ -73,36 +73,26 @@ namespace CoolingDeviceMicroservice.Controllers
 
             return BadRequest("Type of sensor doesn't exist");
         }
-        //[Required, FromBody]
-        //bool on,
-        [HttpPost]
-        public IActionResult TurnOnOffSensor()
-        //    [Required, FromRoute] string type)
-        {
-            _service.SensorOn();
-            //if (type.ToLower() == _service.SensorType.ToLower())
-            //{
-            //    //if (on)
-            //    //{
-            //    if (!_service.IsOn)
-            //    {
-            //        _service.SensorOn();
-            //        return Ok($"Sensor {type} turned on");
-            //    }
-            //    return Ok($"Sensor {type} alredy started");
-            //    //}
-            //    //else
-            //    //{
-            //    //    if (_service.IsOn)
-            //    //    {
-            //    //        _service.SensorOff();
-            //    //        return Ok($"Sensor {type} turned off");
-            //    //    }
-            //    //    return Ok($"Sensor {type} alredy stopped");
-            //    //}
-            //}
 
-            return BadRequest("Type of sensor doesn't exist");
+            
+        [HttpPost]
+        public IActionResult TurnOnOffSensor([Required, FromBody] bool on)
+        {
+           
+            if (!_service.IsOn)
+            {
+                _service.SensorOn();
+                return Ok($"Sensor {_service.SensorType} turned on");
+            }
+            
+            if (_service.IsOn)
+            {
+                _service.SensorOff();
+                return Ok($"Sensor {_service.SensorType} turned off");
+            }
+
+            return Ok($"Sensor {_service.SensorType} alredy stopped");
+
         }
 
         [HttpPost("{type}")]

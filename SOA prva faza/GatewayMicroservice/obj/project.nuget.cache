@@ -1,9 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "KrfqNXjhvHcEpTvXnDgduWEgr7t4trPPXSHlL4nVegaKmqlF63/pzit0OsRopc8OZR1avY59YovHtxxIuhBh+g==",
+=======
+  "dgSpecHash": "BLxMAYixf12r/Dx5QzUftaNGoIAtbppCufEkFaqiBX9722KDxRAtlEvfrm4fcSI3PnHcYFbOKXay13ig4vP3Ug==",
+>>>>>>> a0257b99e7c81c4f4783b3fb90aec616a8398df2
   "success": true,
-  "projectFilePath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
+  "projectFilePath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\GatewayMicroservice\\GatewayMicroservice.csproj",
   "expectedPackageFiles": [
+<<<<<<< HEAD
     "C:\\Users\\Zeljko\\.nuget\\packages\\fluentvalidation\\9.3.0\\fluentvalidation.9.3.0.nupkg.sha512",
     "C:\\Users\\Zeljko\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.0\\microsoft.aspnetcore.jsonpatch.5.0.0.nupkg.sha512",
     "C:\\Users\\Zeljko\\.nuget\\packages\\microsoft.aspnetcore.middlewareanalysis\\5.0.0\\microsoft.aspnetcore.middlewareanalysis.5.0.0.nupkg.sha512",
@@ -22,6 +27,15 @@
     "C:\\Users\\Zeljko\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
     "C:\\Users\\Zeljko\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
     "C:\\Users\\Zeljko\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+=======
+    "C:\\Users\\lukac\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\lukac\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\lukac\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
+    "C:\\Users\\lukac\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\lukac\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\lukac\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\lukac\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+>>>>>>> a0257b99e7c81c4f4783b3fb90aec616a8398df2
   ],
   "logs": []
 }
