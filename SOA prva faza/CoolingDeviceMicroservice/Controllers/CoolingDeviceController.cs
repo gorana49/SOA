@@ -3,7 +3,6 @@ using CoolingDeviceMicroservice.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
-
 namespace CoolingDeviceMicroservice.Controllers
 {
     [ApiController]
@@ -151,6 +150,14 @@ namespace CoolingDeviceMicroservice.Controllers
             }
 
             return BadRequest("Type of sensor doesn't exist");
+        }
+
+        [HttpPost]
+        public IActionResult PostStop(SensorData sensor)
+        {
+            if (sensor.Value > 19)
+                this._service.SensorOff();
+            return Ok("Senzor je u kvaru!");
         }
     }
 }

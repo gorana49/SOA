@@ -6,7 +6,7 @@ namespace DataMicroservice.IRepository
 {
     public interface IDataRepository
     {
-        public Task PostData(Sensor sensor);
-        public List<ValueTimestamp> GetData(string sensorType);
+        Task<IEnumerable<ValueTimestamp>> GetData(string sensorType);
+        Task PostData(Sensor sensor);
     }
 }

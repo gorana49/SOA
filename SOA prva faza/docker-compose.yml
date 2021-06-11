@@ -1,22 +1,11 @@
 version: '3.3'
 services:
-  # hivemq:
-  #   image: hivemq/hivemq4
-  #   ports:
-  #    - "8080:8080"
-  #    - "1883:1883"
-  # db:
-  #   image: quay.io/influxdb/influxdb:v2.0.4
-  #   environment: 
-  #     - INFLUXDB_ADMIN_USER_PASSWORD=adminadmin
-  #     - INFLUXDB_USER_BUCKET=soa
-  #     - INFLUXDB_USER_ORGANIZATION=soa
-  #   volumes:
-  #       - influxdbData:/.influxdbData
-  #   ports:
-  #     - "8086:8086"
-  #   depends_on: 
-  #     - hivemq
+  hivemq:
+    image: hivemq/hivemq4
+    container_name: hivemq
+    ports:
+     - "8080:8080"
+     - "1883:1883"
   coolant:
     image: coolantdev
     build:
@@ -25,9 +14,38 @@ services:
     ports:
       - "4000:80"
     depends_on:
-         - redis
+         - mongodb
     volumes:
          - C:\Users\Zeljko\Desktop\SOA:/SOA
+  stator:
+    image: statordev
+    build:
+        context: ./StatorDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    volumes:
+      - C:\Users\Zeljko\Desktop\SOA:/app/data/
+    depends_on: 
+      - mongodb
+  motor:
+    image: motordev
+    build:
+        context: ./MotorDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "6000:80"
+    depends_on:
+          - mongodb
+  command:
+    image: commanddev
+    build:
+        context: ./MotorDeviceMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "7000:80"
+    depends_on:
+      - mongodb
   data:
     image: data
     build:
@@ -36,46 +54,25 @@ services:
     ports:
       - "3000:80"
     depends_on: 
-      - redis
-  redis:
-    image: redis:latest
-    command: bash -c "redis-server --appendonly yes"
-    ports:
-      - 6379:6379
+      - mongodb
     volumes:
-      - redisVol:/data:rw
+      - mongoDb:/data 
+  mongodb:
+    image : mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    volumes:
+      - mongoDb:/data   
+    depends_on: 
+       - hivemq  
+  # gateway:
+  #   image: gatewaydev
+  #   build:
+  #     context: ./GatewayMicroservice
+  #     dockerfile: Dockerfile
+  #     ports:
+  #       - 7005:80
 volumes:
-    redisVol:
-  # volumes:
-  #   redis-vol:
-    # depends_on:
-    #     - db
-#   stator:
-#     image: statordev
-#     build:
-#         context: ./StatorDeviceMicroservice
-#         dockerfile: Dockerfile
-#     ports:
-#       - "5000:80"
-#     volumes:
-#       - C:\Users\Zeljko\Desktop\SOA:/app/data/
-#     depends_on:
-#         - db
-#   motor:
-#     image: motordev
-#     build:
-#         context: ./MotorDeviceMicroservice
-#         dockerfile: Dockerfile
-#     ports:
-#       - "6000:80"
-#     depends_on:
-#         - db
-#   # gateway: 
-#     # image: gateway
-#     # build:
-#         # context: ./GatewayMicroservice
-#         # dockerfile: Dockerfile
-#     # ports:
-#       # - "5008:80"
-
-#   influxdbData:
+    mongoDb:

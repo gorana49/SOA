@@ -10,7 +10,6 @@ namespace DataMicroservice.Services
 {
     public class Hivemq
     {
-        public const string PUBLIC_MQTT_SERVER_SOCKET = "broker.hivemq.com:8000/mqtt";
         private IMqttClient _client;
 
         public Hivemq()
@@ -31,7 +30,7 @@ namespace DataMicroservice.Services
             }
             catch (Exception e)
             {
-                // Console.WriteLine("MQTT Connect failed: " + e.Message);
+                Console.WriteLine("MQTT Connect failed: " + e.Message);
             }
         }
 
@@ -44,7 +43,7 @@ namespace DataMicroservice.Services
             }
             catch (Exception e)
             {
-                // Console.WriteLine("Connect failed: " + e.Message);
+                Console.WriteLine("Connect failed: " + e.Message);
             }
         }
 

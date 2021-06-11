@@ -1,0 +1,9 @@
+@App:name('AnalyticsMicroservice')
+@App:description('Service which will find out-of-range values!')
+
+@source(type='mqtt', url= 'tcp://localhost:1883', topic='sensor/data', clean.session='true',quality.of.service= '1', keep.alive= '60',connection.timeout='30', @map(type='xml'))Define stream SensorDataInputStream(timestamp string, value double, sensorType string);
+
+@sink(type='mqtt', url= 'tcp://localhost:1883', topic='sensor/analytics', clean.session='true', message.retain='false', quality.of.service= '1', keep.alive= '60',connection.timeout='30', @map(type='xml'))Define stream SensorDataOutputStream(timestamp string, value double, sensorType string);
+
+from SensorDataInputStream[value > 19]
+insert into SensorDataOutputStream;

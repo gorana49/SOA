@@ -65,7 +65,6 @@ namespace CoolingDeviceMicroservice.Services
         {
             this.ReadValue();
             Sensor sensor = new Sensor("coolant", this.Value);
-            Console.WriteLine(this.Value.ToString(), sensor.SensorType);
             HttpClient httpClient = new HttpClient();
             var responseMessage = await httpClient.PostAsJsonAsync("http://data/api/Data/Post", sensor);
             if (responseMessage.IsSuccessStatusCode)

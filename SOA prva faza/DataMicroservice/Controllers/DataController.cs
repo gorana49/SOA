@@ -1,9 +1,7 @@
 ﻿using DataMicroservice.IRepository;
 using DataMicroservice.Model;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace DataMicroservice.Controllers
@@ -17,25 +15,18 @@ namespace DataMicroservice.Controllers
         {
             _dataRepository = dataRepository;
         }
-
         [HttpPost]
-        public Task Post([FromBody, Required] Sensor data)
+        public async Task<ActionResult<ValueTimestamp>> Post([FromBody] Sensor sensor)
         {
-            var result = _dataRepository.PostData(data);
-            return result;
+            await _dataRepository.PostData(sensor);
+            return StatusCode(200);
         }
 
         [HttpGet("{sensorType}")]
-        //public List<ValueTimestamp> GetData([FromRoute] string sensorType)
-        public List<ValueTimestamp> GetData([FromRoute] string sensorType)
+        public Task<IEnumerable<ValueTimestamp>> GetData([FromRoute] string sensorType)
         {
-            //List<ValueTimestamp> list = new List<ValueTimestamp>();
-            List<ValueTimestamp> list = _dataRepository.GetData(sensorType);
-
-            return list;
+            var sensors = _dataRepository.GetData(sensorType);
+            return sensors;
         }
-
-
-
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MotorDeviceMicroservice.Models;
 using MotorDeviceMicroservice.Services;
 using System.ComponentModel.DataAnnotations;
-using MotorDeviceMicroservice.Models;
 using System.Text.Json;
 
 namespace MotorDeviceMicroservice.Controllers
@@ -27,7 +27,7 @@ namespace MotorDeviceMicroservice.Controllers
                 if (type.ToLower() == sensor.SensorType.ToLower())
                 {
                     SensorMetadata metadata = new SensorMetadata(type, sensor.Timeout.ToString(), sensor.Threshold.ToString());
-                    
+
                     return Ok(metadata);
                 }
             }
@@ -37,7 +37,7 @@ namespace MotorDeviceMicroservice.Controllers
         [HttpGet]
         public IActionResult GetAllSensorsParams()
         {
-           
+
             return Ok(this._listOfSensorService);
         }
 
@@ -163,6 +163,17 @@ namespace MotorDeviceMicroservice.Controllers
                 }
             }
             return BadRequest("Type of sensor doesn't exist");
+        }
+        [HttpPost]
+        public IActionResult PostStop(SensorData sensor)
+        {
+            if (sensor.SensorType == "motor_speed")
+            {
+                this._listOfSensorService.listOfServices[0].SensorOff();
+                return Ok("Motor_speed: turned off");
+            }
+            this._listOfSensorService.listOfServices[1].SensorOff();
+            return Ok("Pm: turned off");
         }
     }
 }

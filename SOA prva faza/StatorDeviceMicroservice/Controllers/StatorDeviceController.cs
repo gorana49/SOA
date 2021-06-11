@@ -14,7 +14,6 @@ namespace StatorDeviceMicroservice.Controllers
         public StatorDeviceController()
         {
             _listOfSensorService = new ListOfSensorServices();
-            System.Console.WriteLine("kontroler");
         }
 
         [HttpGet("{type}")]
@@ -164,5 +163,17 @@ namespace StatorDeviceMicroservice.Controllers
             }
             return BadRequest("Type of sensor doesn't exist");
         }
+        [HttpPost]
+        public IActionResult PostStop(SensorData sensor)
+        {
+            if (sensor.SensorType == "stator_winding")
+            {
+                this._listOfSensorService.listOfServices[0].SensorOff();
+                return Ok("stator_winding: turned off");
+            }
+            this._listOfSensorService.listOfServices[1].SensorOff();
+            return Ok("stator_tooth: turned off");
+        }
     }
+
 }
