@@ -28,11 +28,5 @@ namespace DataMicroservice.Controllers
             var sensors = _dataRepository.GetData(sensorType);
             return sensors;
         }
-<<<<<<< HEAD
-=======
-
-        
-
->>>>>>> a0257b99e7c81c4f4783b3fb90aec616a8398df2
     }
 }
