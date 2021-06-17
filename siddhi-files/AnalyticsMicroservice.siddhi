@@ -1,9 +1,47 @@
-@App:name('AnalyticsMicroservice')
-@App:description('Service which will find out-of-range values!')
+@App:name("AnalyticsMicroservice")
 
-@source(type='mqtt', url= 'tcp://localhost:1883', topic='sensor/data', clean.session='true',quality.of.service= '1', keep.alive= '60',connection.timeout='30', @map(type='xml'))Define stream SensorDataInputStream(timestamp string, value double, sensorType string);
+@Source(type = 'http',
+        receiver.url='http://0.0.0.0:8006/AnalyticsMicroservice',
+        basic.auth.enabled='false',
+        @map(type='json'), @attributes(SensorType = "SensorType", Value = "Value", Timestamp = "Timestamp"))
+define stream DataInputStream 
+(
+    SensorType string,
+    Value double,
+    Timestamp string
+);
+@sink(type='http', publisher.url='http://192.168.1.103:9000/api/Analytics/Post',
+      method='POST', 
+      headers='Content-type:application/json',
+      basic.auth.enabled='false',
+      @map(type='json'))
+define stream OutputDataStream 
+(
+    SensorType string,
+    Value double,
+    Timestamp string
+);
+@info(name='CoolantBad')
+from DataInputStream[SensorType=="coolant" and Value>18.50]
+select SensorType, Value, Timestamp
+insert into OutputDataStream;
 
-@sink(type='mqtt', url= 'tcp://localhost:1883', topic='sensor/analytics', clean.session='true', message.retain='false', quality.of.service= '1', keep.alive= '60',connection.timeout='30', @map(type='xml'))Define stream SensorDataOutputStream(timestamp string, value double, sensorType string);
+@info(name='MotorSpeed')
+from DataInputStream[SensorType=="motor_speed" and Value>62.23]
+select SensorType, Value, Timestamp
+insert into OutputDataStream;
 
-from SensorDataInputStream[value > 19]
-insert into SensorDataOutputStream;
+@info(name='MotorPm')
+from DataInputStream[SensorType=="pm" and Value>45.23]
+select SensorType, Value, Timestamp
+insert into OutputDataStream;
+
+@info(name='StatorTooth')
+from DataInputStream[SensorType=="stator_tooth" and Value>62.23]
+select SensorType, Value, Timestamp
+insert into OutputDataStream;
+
+@info(name='Statorwinding')
+from DataInputStream[SensorType=="stator_winding" and Value>45.23]
+select SensorType, Value, Timestamp
+insert into OutputDataStream;

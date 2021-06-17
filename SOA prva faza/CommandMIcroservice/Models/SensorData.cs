@@ -2,14 +2,20 @@
 
 namespace CommandMIcroservice.Models
 {
+    [Serializable]
     public class SensorData
     {
         public string SensorType { get; set; }
         public double Value { get; set; }
-        public SensorData(double value, string sensorType)
+        public string Timestamp { get; set; }
+
+        public SensorData(string sensorType, double value, string timestamp)
         {
-            this.Value = value;
             this.SensorType = sensorType;
+
+            this.Value = value;
+
+            this.Timestamp = timestamp;
         }
     }
 }

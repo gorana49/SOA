@@ -76,7 +76,7 @@ namespace CoolingDeviceMicroservice.Controllers
 
             
         [HttpPost]
-        public IActionResult TurnOnOffSensor([Required, FromBody] bool on)
+        public IActionResult TurnOnOffSensor()
         {
            
             if (!_service.IsOn)

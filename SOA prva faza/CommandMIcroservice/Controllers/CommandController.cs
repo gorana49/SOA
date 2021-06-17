@@ -6,23 +6,52 @@ using System.Text;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CommandMIcroservice.Models;
-using CommandMIcroservice.IRepository;
-namespace CommandMicroservice.Controllers
+using CommandMIcroservice.Services;
+using System.Net.Http.Json;
+using CommandMIcroservice.Hubs;
+
+namespace CommandMIcroservice.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class CommandController : ControllerBase
     {
-        public ICommandRepository _commandrepository;
-        public CommandController(ICommandRepository commandRepository)
+        private readonly CommandHub _commandHub;
+        public CommandController(CommandHub commandHub)
         {
-            _commandrepository = commandRepository;
+            _commandHub = commandHub;
         }
-        [HttpGet("{sensorType}")]
-        public Task<IEnumerable<SensorDataCommand>> GetData([FromRoute] string sensorType)
+        [HttpPost]
+        public async Task PostCommand([Required, FromBody] string command)
         {
-            var sensors = _commandrepository.GetData(sensorType);
-            return sensors;
+            HttpClient httpClient = new HttpClient();
+            if (command == "coolant")
+            {
+                await  _commandHub.SendWarning("coolant", "Wrong value on sensor coolant!");
+                var responseMessage = await httpClient.PostAsJsonAsync("http://coolant/api/Data/PostStop", command);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    Console.Write("Uspelo!");
+                }
+            }
+            else if (command == "pm" || command == "motor_speed")
+            {
+                await _commandHub.SendWarning("coolant", "Wrong value on sensor" + command);
+                var responseMessage = await httpClient.PostAsJsonAsync("http://motor/api/Data/PostStop", command);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    Console.Write("Uspelo!");
+                }
+            }
+            else
+            {
+                await _commandHub.SendWarning("coolant", "Wrong value on sensor" + command);
+                var responseMessage = await httpClient.PostAsJsonAsync("http://stator/api/Data/PostStop", command);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    Console.Write("Uspelo!");
+                }
+            }
         }
     }
 }

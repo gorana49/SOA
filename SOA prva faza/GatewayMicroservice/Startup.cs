@@ -21,36 +21,45 @@ namespace GatewayMicroservice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+            services.AddMvcCore().AddApiExplorer();
+            services.AddCors(options => {
+                options.AddPolicy("CORS", builder =>
+                {
+                    builder.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+                });
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GatewayMicroservice", Version = "v1" });
             });
             services.AddOcelot();
+            services.AddSwaggerForOcelot(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+           // app.UsePathBase("/gateway");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GatewayMicroservice v1"));
             }
+            app.UseCors();
 
-            app.UseHttpsRedirection();
+            app.UseWebSockets();
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            app.UseSwaggerForOcelotUI(opt =>
             {
-                endpoints.MapControllers();
-            });
-            app.UseOcelot().Wait();
+             //   opt.DownstreamSwaggerEndPointBasePath = "/gateway/swagger/docs";
+                opt.PathToSwaggerGenerator = "/swagger/docs";
+            })
+            .UseOcelot()
+            .Wait();
         }
     }
 }

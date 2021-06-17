@@ -1,0 +1,4 @@
+docker run -it -p 8006:8006 -v "C:\Users\455g7\Desktop\SOA_Gorana\SOA\siddhi-files\AnalyticsMicroservice.siddhi":/siddhi-runner/AnalyticsMicroservice.siddhi siddhiio/siddhi-runner-alpine -Dapps=/siddhi-runner/AnalyticsMicroservice.siddhi
+
+
+

@@ -5,23 +5,22 @@ using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
-using CommandMIcroservice.IRepository;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace CommandMIcroservice.Services
 {
     public class DataService
     {
         private Hivemq _mqttService;
-        private readonly ICommandRepository _commandRepository;
         private event EventHandler ServiceCreated;
-        public DataService(Hivemq mqttService, ICommandRepository repository)
+        public DataService(Hivemq mqttService)
         {
-            _commandRepository = repository;
             _mqttService = mqttService;
             ServiceCreated += OnServiceCreated;
             ServiceCreated?.Invoke(this, EventArgs.Empty);
         }
-
         private async void OnServiceCreated(object sender, EventArgs args)
         {
             while (!_mqttService.IsConnected())
@@ -30,7 +29,7 @@ namespace CommandMIcroservice.Services
             }
             if (_mqttService.IsConnected())
             {
-                await _mqttService.Subscribe("analytics", OnDataReceived);
+                await _mqttService.Subscribe("sensor/analytics", OnDataReceived);
                 Console.WriteLine("Subscribed");
             }
         }
@@ -39,19 +38,18 @@ namespace CommandMIcroservice.Services
         {
             try
             {
-                var json_data = Encoding.UTF8.GetString(arg.ApplicationMessage.Payload);
-                SensorData sensorData = JsonConvert.DeserializeObject<SensorData>(json_data);
-                SensorDataCommand sensorDataCommand = new SensorDataCommand(sensorData.SensorType, sensorData.Value, "out-of-range");
-                await _commandRepository.PostData(sensorDataCommand);
-                Console.WriteLine(sensorData);
-                await this.SendToSensorsAsyncStop(sensorData);
+                var bds = Encoding.UTF8.GetString(arg.ApplicationMessage.Payload);
+                var des = System.Text.Json.JsonSerializer.Deserialize<SensorTimestamp>(bds);
+                Console.WriteLine(bds);
+                Console.WriteLine(des.ToString());
+                await this.SendToSensorsAsyncStop(des);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
-        public async System.Threading.Tasks.Task SendToSensorsAsyncStop(SensorData sensorData)
+        public async System.Threading.Tasks.Task SendToSensorsAsyncStop(SensorTimestamp sensorData)
         {
 
             HttpClient httpClient = new HttpClient();

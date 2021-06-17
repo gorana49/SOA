@@ -1,9 +1,11 @@
-﻿using DataMicroservice.IRepository;
+using DataMicroservice.IRepository;
 using DataMicroservice.Model;
 using DataMicroservice.Services;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System;
 namespace DataMicroservice.Repository
 {
     public class DataRepository : IDataRepository
@@ -16,11 +18,14 @@ namespace DataMicroservice.Repository
             _context = context;
             _service = serv;
         }
+
         public async Task PostData(Sensor sensor)
         {
             ValueTimestamp vl = new ValueTimestamp(sensor.SensorType, sensor.Value);
             await _context.SensorData.InsertOneAsync(vl);
-             _service.PublishOnTopic(sensor, "sensor/data");
+            string Timestamp = vl.Timestamp.ToString();
+            SensorTimestamp stmp = new SensorTimestamp(vl.SensorType, vl.Value, Timestamp);
+            _service.PublishOnTopic(stmp, "sensor/data");
         }
         public async Task<IEnumerable<ValueTimestamp>> GetData(string sensorType)
         {

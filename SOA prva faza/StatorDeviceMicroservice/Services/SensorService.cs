@@ -62,15 +62,8 @@ namespace StatorDeviceMicroservice.Services
         {
             this.ReadValue();
             Sensor sensor = new Sensor(this.Value, this.SensorType);
-<<<<<<< HEAD
-
-            HttpClient httpClient = new HttpClient();
-            var response = await httpClient.PostAsync("http://localhost:3000/data/api/Data/Post", new StringContent(
-                    System.Text.Json.JsonSerializer.Serialize(sensor), Encoding.UTF8, "application/json"));
-=======
             HttpClient httpClient = new HttpClient();
             var responseMessage = await httpClient.PostAsJsonAsync("http://data/api/Data/Post", sensor);
->>>>>>> a0257b99e7c81c4f4783b3fb90aec616a8398df2
         }
 
 

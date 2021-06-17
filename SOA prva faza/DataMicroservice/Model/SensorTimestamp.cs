@@ -12,13 +12,13 @@ namespace DataMicroservice.Model
         public double Value { get; set; }
         public string Timestamp { get; set; }
 
-        public SensorTimestamp(string type, double value)
+        public SensorTimestamp(string type, double value,  string vr)
         {
             this.SensorType = type;
 
             this.Value = value;
 
-            this.Timestamp = DateTime.Now.ToString();
+            this.Timestamp = vr;
         }
     }
 }

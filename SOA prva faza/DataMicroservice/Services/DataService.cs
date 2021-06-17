@@ -2,7 +2,7 @@
 using System.Text.Json;
 namespace DataMicroservice.Services
 {
-    public class DataService
+    public class DataService 
     {
         private Hivemq _mqttService;
 
@@ -25,8 +25,9 @@ namespace DataMicroservice.Services
 
         public async void PublishOnTopic(object data, string topic)
         {
-            string jsonString = JsonSerializer.Serialize(data);
-            await _mqttService.Publish(jsonString, topic);
+            //object jsonString =JsonSerializer.Serialize(data);
+            Console.WriteLine(data);
+            await _mqttService.Publish(data, topic);
         }
     }
 }

@@ -333,19 +333,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lukac\\.nuget\\packages\\": {}
+    "C:\\Users\\455g7\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
+      "projectUniqueName": "C:\\Users\\455g7\\Desktop\\SOA_Gorana\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
       "projectName": "CoolingDeviceMicroservice",
-      "projectPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
-      "packagesPath": "C:\\Users\\lukac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lukac\\source\\repos\\SOA\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\obj\\",
+      "projectPath": "C:\\Users\\455g7\\Desktop\\SOA_Gorana\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\CoolingDeviceMicroservice.csproj",
+      "packagesPath": "C:\\Users\\455g7\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\455g7\\Desktop\\SOA_Gorana\\SOA\\SOA prva faza\\CoolingDeviceMicroservice\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lukac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\455g7\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -406,7 +406,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CommandMIcroservice\\CommandMIcroservice.csproj": {}
+    "C:\\Users\\455g7\\Desktop\\SOA_Gorana\\SOA\\SOA prva faza\\CommandMIcroservice\\CommandMIcroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CommandMIcroservice\\CommandMIcroservice.csproj": {
+    "C:\\Users\\455g7\\Desktop\\SOA_Gorana\\SOA\\SOA prva faza\\CommandMIcroservice\\CommandMIcroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CommandMIcroservice\\CommandMIcroservice.csproj",
+        "projectUniqueName": "C:\\Users\\455g7\\Desktop\\SOA_Gorana\\SOA\\SOA prva faza\\CommandMIcroservice\\CommandMIcroservice.csproj",
         "projectName": "CommandMIcroservice",
-        "projectPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CommandMIcroservice\\CommandMIcroservice.csproj",
-        "packagesPath": "C:\\Users\\Zeljko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zeljko\\Desktop\\SOA\\SOA\\SOA prva faza\\CommandMIcroservice\\obj\\",
+        "projectPath": "C:\\Users\\455g7\\Desktop\\SOA_Gorana\\SOA\\SOA prva faza\\CommandMIcroservice\\CommandMIcroservice.csproj",
+        "packagesPath": "C:\\Users\\455g7\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\455g7\\Desktop\\SOA_Gorana\\SOA\\SOA prva faza\\CommandMIcroservice\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Zeljko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\455g7\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,13 +44,13 @@
               "target": "Package",
               "version": "[3.0.13, )"
             },
+            "Microsoft.AspNet.SignalR": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"
-            },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.12.4, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -82,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,10 +7,9 @@ public class SensorContext : ISensorContext
 {
     public SensorContext()
     {
-        var client = new MongoClient("mongodb://mongodb:27017");
+        var client = new MongoClient("mongodb://mongodbData:27017");
         var database = client.GetDatabase("SensorDataDb");
         SensorData = database.GetCollection<ValueTimestamp>("SensorData");
-        // SensorContextSeed.SeedData(ValueTImestamp);
     }
     public IMongoCollection<ValueTimestamp> SensorData { get; }
 }

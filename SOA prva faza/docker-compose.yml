@@ -14,10 +14,9 @@ services:
     ports:
       - "4000:80"
     depends_on:
-         - mongodb
+         - mongodbData
     volumes:
-<<<<<<< HEAD
-         - C:\Users\Zeljko\Desktop\SOA:/SOA
+         - C:\Users\455g7\Desktop\SOA_Gorana:/SOA
   stator:
     image: statordev
     build:
@@ -26,9 +25,9 @@ services:
     ports:
       - "5000:80"
     volumes:
-      - C:\Users\Zeljko\Desktop\SOA:/app/data/
+      - C:\Users\455g7\Desktop\SOA_Gorana:/SOA
     depends_on: 
-      - mongodb
+      - mongodbData
   motor:
     image: motordev
     build:
@@ -37,19 +36,29 @@ services:
     ports:
       - "6000:80"
     depends_on:
-          - mongodb
+          - mongodbData
+    volumes:
+     - C:\Users\455g7\Desktop\SOA_Gorana:/SOA
   command:
     image: commanddev
     build:
-        context: ./MotorDeviceMicroservice
+        context: ./CommandMIcroService
         dockerfile: Dockerfile
     ports:
       - "7000:80"
     depends_on:
-      - mongodb
-=======
-         - C:\Users\lukac\source\repos\SOA:/SOA
->>>>>>> a0257b99e7c81c4f4783b3fb90aec616a8398df2
+      - hivemq
+  analytics:
+    image: analyticsdev
+    build:
+        context: ./AnalyticsMicroservice
+        dockerfile: Dockerfile
+    ports:
+      - "9000:80"
+    depends_on:
+      - hivemq
+    volumes: 
+      - mongodbAnalytics:/data   
   data:
     image: data
     build:
@@ -58,65 +67,40 @@ services:
     ports:
       - "3000:80"
     depends_on: 
-      - mongodb
+      - mongodbData
     volumes:
-      - mongoDb:/data 
-  mongodb:
+      - mongodbData:/data 
+  mongodbData:
     image : mongo
-    container_name: mongodb
+    container_name: mongodbData
     ports:
       - "27017:27017"
     restart: unless-stopped
     volumes:
-<<<<<<< HEAD
-      - mongoDb:/data   
+      - mongodbData:/data   
     depends_on: 
        - hivemq  
-  # gateway:
-  #   image: gatewaydev
-  #   build:
-  #     context: ./GatewayMicroservice
-  #     dockerfile: Dockerfile
-  #     ports:
-  #       - 7005:80
-volumes:
-    mongoDb:
-=======
-      - redisVol:/data:rw
-
-  # volumes:
-  #   redis-vol:
-    # depends_on:
-    #     - db
-  stator:
-    image: statordev
-    build:
-        context: ./StatorDeviceMicroservice
-        dockerfile: Dockerfile
+  mongodbAnalytics:
+    image : mongo
+    container_name: mongodbAnalytics
     ports:
-      - "5000:80"
-    depends_on:
-         - redis
+      - "27018:27017"
+    restart: unless-stopped
     volumes:
-         - C:\Users\lukac\source\repos\SOA:/SOA
-  motor:
-    image: motordev
+      - mongodbAnalytics:/data   
+    depends_on:  
+        - hivemq
+  gateway:
+    image: gatewaydev
     build:
-        context: ./MotorDeviceMicroservice
-        dockerfile: Dockerfile
+      context: ./GatewayMicroservice
+      dockerfile: Dockerfile
     ports:
-      - "6000:80"
-    depends_on:
-         - redis
-    volumes:
-         - C:\Users\lukac\source\repos\SOA:/SOA
-#   # gateway: 
-#     # image: gateway
-#     # build:
-#         # context: ./GatewayMicroservice
-#         # dockerfile: Dockerfile
-#     # ports:
-#       # - "5008:80"
+      - "7005:80"
+    expose:
+      - "80"
+    depends_on: 
+      - command
 volumes:
-    redisVol:
->>>>>>> a0257b99e7c81c4f4783b3fb90aec616a8398df2
+    mongodbData:
+    mongodbAnalytics:

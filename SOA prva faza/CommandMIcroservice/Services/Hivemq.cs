@@ -22,7 +22,7 @@ namespace CommandMIcroservice.Services
             {
                 await _client.ConnectAsync(
                 new MqttClientOptionsBuilder()
-                    .WithTcpServer("localhost", 1883)
+                    .WithTcpServer("hivemq", 1883)
                     .WithCleanSession(true)
                     .Build(),
                 CancellationToken.None);

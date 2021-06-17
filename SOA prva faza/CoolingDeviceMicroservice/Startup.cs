@@ -22,10 +22,17 @@ namespace CoolingDeviceMicroservice
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DeviceService API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CoolingDeviceMicroservice", Version = "v1" });
                 c.EnableAnnotations();
             });
-
+            services.AddCors(options => {
+                options.AddPolicy("CORS", builder =>
+                {
+                    builder.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +43,7 @@ namespace CoolingDeviceMicroservice
                 app.UseDeveloperExceptionPage();
 
             }
-
+            app.UseCors();
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CoolingDeviceMicroservice v1"));
 
