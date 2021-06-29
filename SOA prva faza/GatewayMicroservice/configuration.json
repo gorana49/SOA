@@ -112,7 +112,7 @@
         {
           "Name": "DataMicroservice",
           "Version": "v1",
-          "Url": "http://192.168.1.103:3000/swagger/v1/swagger.json"
+          "Url": "http://192.168.100.22:3000/swagger/v1/swagger.json"
         }
       ]
     },
@@ -122,7 +122,7 @@
         {
           "Name": "CoolantService",
           "Version": "v1",
-          "Url": "http://192.168.1.103:4000/swagger/v1/swagger.json"
+          "Url": "http://192.168.100.22:4000/swagger/v1/swagger.json"
         }
       ]
     },
@@ -132,7 +132,7 @@
         {
           "Name": "StatorMicroservice",
           "Version": "v1",
-          "Url": "http://192.168.1.103:5000/swagger/v1/swagger.json"
+          "Url": "http://192.168.100.22:5000/swagger/v1/swagger.json"
         }
       ]
     },
@@ -142,7 +142,7 @@
         {
           "Name": "MotorMicroservice",
           "Version": "v1",
-          "Url": "http://192.168.1.103:6000/swagger/v1/swagger.json"
+          "Url": "http://192.168.100.22:6000/swagger/v1/swagger.json"
         }
       ]
     },
@@ -152,12 +152,12 @@
         {
           "Name": "CommandMIcroservice",
           "Version": "v1",
-          "Url": "http://192.168.1.103:7000/swagger/v1/swagger.json"
+          "Url": "http://192.168.100.22:7000/swagger/v1/swagger.json"
         }
       ]
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://192.168.1.103:7005"
+    "BaseUrl": "http://192.168.100.22:7005"
   }
 }

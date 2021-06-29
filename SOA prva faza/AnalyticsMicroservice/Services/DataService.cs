@@ -41,9 +41,9 @@ namespace AnalyticsMicroservice.Services
                    // PropertyNameCaseInsensitive = true,
                   //  PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 };
-                Console.WriteLine(des);
+                Console.WriteLine(des.SensorType);
                 HttpClient httpClient = new HttpClient();
-                var responseMessage = await httpClient.PostAsJsonAsync<SensorTimestamp>("http://192.168.1.103:8006/AnalyticsMicroservice", des,options);
+                var responseMessage = await httpClient.PostAsJsonAsync<SensorTimestamp>("http://192.168.100.22:8006/AnalyticsMicroservice", des,options);
             }
             catch (Exception e)
             {

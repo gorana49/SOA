@@ -8,15 +8,18 @@ using System.Text;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text.Json;
+using CommandMIcroservice.Hubs;
 
 namespace CommandMIcroservice.Services
 {
     public class DataService
     {
+        private CommandHub _commandHub;
         private Hivemq _mqttService;
         private event EventHandler ServiceCreated;
-        public DataService(Hivemq mqttService)
+        public DataService(Hivemq mqttService, CommandHub commandhub)
         {
+            _commandHub = commandhub;
             _mqttService = mqttService;
             ServiceCreated += OnServiceCreated;
             ServiceCreated?.Invoke(this, EventArgs.Empty);
@@ -55,6 +58,7 @@ namespace CommandMIcroservice.Services
             HttpClient httpClient = new HttpClient();
             if (sensorData.SensorType == "coolant")
             {
+                await _commandHub.SendWarning("coolant", "Wrong value on sensor coolant!");
                 var responseMessage = await httpClient.PostAsJsonAsync("http://coolant/api/Data/PostStop", sensorData);
                 if (responseMessage.IsSuccessStatusCode)
                 {

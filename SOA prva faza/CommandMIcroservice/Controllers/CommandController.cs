@@ -27,8 +27,9 @@ namespace CommandMIcroservice.Controllers
             HttpClient httpClient = new HttpClient();
             if (command == "coolant")
             {
+                Console.WriteLine("COOLANT NE DAJE DOBRE VREDNOSTI!");
                 await  _commandHub.SendWarning("coolant", "Wrong value on sensor coolant!");
-                var responseMessage = await httpClient.PostAsJsonAsync("http://coolant/api/Data/PostStop", command);
+                var responseMessage = await httpClient.PostAsJsonAsync("http://coolant:80/api/Data/PostStop", command);
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     Console.Write("Uspelo!");
@@ -37,7 +38,7 @@ namespace CommandMIcroservice.Controllers
             else if (command == "pm" || command == "motor_speed")
             {
                 await _commandHub.SendWarning("coolant", "Wrong value on sensor" + command);
-                var responseMessage = await httpClient.PostAsJsonAsync("http://motor/api/Data/PostStop", command);
+                var responseMessage = await httpClient.PostAsJsonAsync("http://motor:80/api/Data/PostStop", command);
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     Console.Write("Uspelo!");

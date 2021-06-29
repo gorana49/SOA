@@ -43,9 +43,11 @@ namespace CommandMIcroservice
                 });
             });
             services.AddSignalR();
-            services.AddSingleton<CommandHub>(new CommandHub());
+            CommandHub comm = new CommandHub();
+            services.AddSingleton<CommandHub>(comm);
             Hivemq mqtt = new();
-            services.AddSingleton(new DataService(mqtt));
+            
+            services.AddSingleton(new DataService(mqtt, comm));
             services.AddSingleton(mqtt);
         }
 

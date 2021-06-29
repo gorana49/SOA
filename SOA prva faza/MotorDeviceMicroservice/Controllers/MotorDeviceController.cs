@@ -86,34 +86,19 @@ namespace MotorDeviceMicroservice.Controllers
         }
 
         [HttpPost("{type}")]
-        public IActionResult TurnOnOffSensor(
-            [Required, FromBody] bool on, [Required, FromRoute] string type)
+        public IActionResult TurnOnOffSensor(string sensorType)
         {
-            foreach (SensorService sensor in _listOfSensorService.listOfServices)
+            if (_listOfSensorService.listOfServices[0].SensorType == sensorType)
             {
-                if (type.ToLower() == sensor.SensorType.ToLower())
-                {
-                    if (on)
-                    {
-                        if (!sensor.IsOn)
-                        {
-                            sensor.SensorOn();
-                            return Ok($"Sensor {type} turned on");
-                        }
-                        return Ok($"Sensor {type} alredy started");
-                    }
-                    else
-                    {
-                        if (sensor.IsOn)
-                        {
-                            sensor.SensorOff();
-                            return Ok($"Sensor {type} turned off");
-                        }
-                        return Ok($"Sensor {type} alredy stopped");
-                    }
-                }
+                _listOfSensorService.listOfServices[0].SensorOn();
+                return Ok($"Sensor {_listOfSensorService.listOfServices[0].SensorType} turned off");
             }
-            return BadRequest("Type of sensor doesn't exist");
+            else
+            {
+                _listOfSensorService.listOfServices[1].SensorOn();
+                return Ok($"Sensor {_listOfSensorService.listOfServices[0].SensorType} turned off");
+            }
+            return Ok($"Sensor {_listOfSensorService.listOfServices[0].SensorType} alredy stopped");
         }
 
         [HttpPost("{type}")]
